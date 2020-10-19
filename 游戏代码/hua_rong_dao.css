@@ -1,0 +1,259 @@
+﻿
+
+/* 全部 */
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: rgb(203, 226, 230);
+  /* rgb(203, 220, 221) */
+  
+
+}
+/* *是通配符，给所有的元素去掉默认样式，因为有的浏览器会默认加上一些样式，这可能会给布局带来问题 */
+body{
+  width: 100%;
+  height: 100%;
+  
+}
+/* 给body设置100%的高度和宽度，这样就会根据浏览器屏幕大小自动适配 */
+#container{
+  width: 600px;
+  height: 450px;
+  margin:0 auto;
+  position: relative;
+  top:94px;
+
+}
+
+
+#play_ground{
+  width: 450px;
+  height: 450px;
+  border-radius: 15px;
+  font-size: 0;
+  /* position: absolute; */
+  position: relative;
+  /* display: inline-block; */
+  background-color:rgb(231, 166, 177);
+
+  
+  }
+
+  
+  .image{
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    font-size: 15px;
+    text-align: center;/*文字居中*/
+    pointer-events: none; /*禁止鼠标事件，auto是可以*/
+    line-height : 100%;
+    cursor: pointer;
+    background-image: url("characters/B_.jpg"); 
+    background-size: 450px 450px;
+    background-repeat: no-repeat;
+    position: absolute;
+    border-radius: 5px;
+    transition:all 0.3s ease;
+  }
+  
+  #play_ground .image >span {
+    text-shadow: 2px 2px 2px #4CAF50;
+    
+  }
+  #play_ground .image:nth-child(1) {
+    background-position: 0 0;
+  }
+  #play_ground .image:nth-child(2) {
+  
+    background-position: -150px 0;
+  }
+  #play_ground .image:nth-child(3) {
+  
+    background-position: -300px 0;
+  }
+  #play_ground .image:nth-child(4) {
+  
+    background-position: 0 -150px;
+  }
+  #play_ground .image:nth-child(5) {
+  
+    background-position: -150px -150px;
+  }
+  #play_ground .image:nth-child(6) {
+  
+    background-position: -300px -150px;
+  }
+  #play_ground .image:nth-child(7) {
+  
+    background-position: 0 -300px;
+  }
+  #play_ground .image:nth-child(8) {
+  
+    background-position: -150px -300px;
+  }
+  #play_ground .image:nth-child(9) {
+  
+    background-position: -300px -300px;
+   
+  }
+  #correct_text{
+    font-size: 18px; /*字体大小*/
+    position: relative;
+    top: 0px;
+    left:450px;
+    width: 150px;
+    height:30px;
+
+    text-align: center;/*文字居中*/
+  }
+  /* #correct{
+    top:30px;
+    left: 455px;
+    opacity: 1;
+    width: 150px;
+    height: 150px;
+  } */
+  #correct_img{
+    border-width:0px;
+    position: absolute;
+    left:460px;
+    top:40px;
+    width:150px;
+    height:150px;
+    border-radius: 4px;
+    opacity: 1;
+    background-image: url("characters/B_.jpg");
+    background-size: 150px 150px;
+    }
+
+#text_ground{
+  width: 450px;
+  height: 78px;
+  border-radius: 5px;
+  float:left;
+  display:block;
+  position: relative;
+  top:1px;
+  background-color:powderblue;
+  
+  }
+
+ 
+#text_time{
+	font-size: 25px; /*字体大小*/
+	position: relative;
+  top: 0px;
+  width: 150px;
+  left:300px;
+	text-align: center;/*文字居中*/
+}
+
+#timer{
+	font-size: 20px; /*字体大小*/
+	position: relative;
+  top: 10px;
+  width:150px;
+  left:300px;
+	text-align: center;/*文字居中*/
+}
+
+#text_ground button{
+    background-color:rgb(127, 190, 241); /* Green背景颜色 */
+    border: none;  /* 边框颜色*/
+    color: white; /*字体颜色*/
+	  margin:0 auto;
+	  cursor: pointer;
+    /* text-align: center; */    /*文字居中*/
+    text-decoration: none; /*文字装饰*/
+    /* display: inline; */
+    font-size: 16px; /*字体大小*/
+	 border-radius: 15px;
+	 position: relative;
+}
+#start_and_stop{
+	padding: 4px 16px;/*外框？*/
+  top: -55px;
+}
+
+#reset {
+  padding: 4px 16px;/*外框？*/
+	top: -55px;
+}
+
+/* 这是个开挂按钮 */
+#cheater {
+	padding: 4px 16px;/*外框？*/
+  top: -55px;
+}
+/* 选择图片，打开导航栏 */
+#js-canvi-open-btn{
+  padding: 4px 16px;/*外框？*/
+  top: -45px;
+}
+
+#test {
+  padding: 4px 16px;/*外框？*/
+	top: -63px;
+}
+#change_num_btn{
+  padding: 4px 16px;/*外框？*/
+  top: -73px;
+  left: 100px;
+  width: 200px;
+  text-align: left;
+  
+}
+
+#change_num{
+  /* padding: 4px 16px;外框？ */
+  top: -73px;
+  left: -20px;
+  width: 100px;
+  position: relative;
+  background-color: rgb(130, 175, 216);
+}
+
+/* 弹窗div,替代alert函数 */
+#tanchuang{
+   position: absolute;
+   background-color:rgb(241, 230, 230);
+   border: 1px solid rgba(0,0,0,.2);
+   border-radius: 6px;
+   box-shadow: 0 3px 9px rgba(0,0,0,.5);
+   width: 350px;
+   height: 200px;
+   margin:0 auto; 
+   top: 25%;
+   left: 35%;
+   opacity: 0.85;
+}
+
+#tan_text{
+  text-align: left;
+  background-color:rgb(223, 225, 236);
+  position: relative;
+  border-radius: 5px;
+  margin: 8px;
+  height: 145px;
+}
+
+#tan_btn{
+  background-color: rgb(223, 225, 236);
+  /* border-color: #ccc; */
+  border-width: 2px;
+  display: block;
+  position: relative;
+  font-size: 24px;
+  margin-top: -3px;
+  margin-left: 280px;
+  width: 60px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+
+}
+div {
+	transition: all 0.6s;
+}

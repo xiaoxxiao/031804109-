@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Page 1</title>
+  <script src="hua_rong_dao.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+ 
+  <!-- <link href="axure_rp_page.css" type="text/css" rel="stylesheet"/> -->
+  <link href="hua_rong_dao.css" type="text/css" rel="stylesheet"/>
+  <script src="jquery-3.2.1.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="css_dao/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css_dao/htmleaf-demo.css">
+	<link href="dist_dao/canvi.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+  <div id="container" class="">
+
+  <!-- 9个方块 -->
+  <div id="play_ground">
+      
+      <!-- 1 (图片 )  -->
+        <div id="u1" class="image" onclick="move(this)" data-label="1" ><span>1</span></div>
+
+          <!-- 2 (图片 ) -->
+          <div id="u2" class="image" onclick="move(this)" data-label="2"><span>2</span>
+             </div>
+
+          <!-- 3 (图片 ) -->
+          <div id="u3" class="image" onclick="move(this)" data-label="3"><span>3</span>
+           </div>
+
+
+          <!-- 4 (图片 ) -->
+          <div id="u4" class="image" onclick="move(this)" data-label="4"><span>4</span>
+             </div>
+
+          <!-- 5 (图片 ) -->
+          <div id="u5" class="image" onclick="move(this)" data-label="5"><span>5</span>
+           </div>
+
+          <!-- 6 (图片 ) -->
+          <div id="u6" class="image" onclick="move(this)" data-label="6"><span>6</span>
+             </div>
+
+          <!-- 7 (图片 ) -->
+          <div id="u7" class="image" onclick="move(this)" data-label="7"><span>7</span>
+              </div>
+
+          <!-- 8 (图片 ) -->
+          <div id="u8" class="image" onclick="move(this)" data-label="8"><span>8</span>
+           </div>
+
+          <!-- 9 (图片 ) 隐形图-->
+          <div id="u9" class="image" onclick="move(this)" data-label="9"><span>9</span>
+           </div>
+
+           <!--原图显示 -->
+          <p id="correct_text">原图</p> 
+          <div id="correct">  
+            <img id="correct_img" class="correct_img" />
+          </div> 
+
+  </div>
+
+    <!-- 下边是右边文字的地方 -->
+    <div id="text_ground">
+      <!-- 游戏时间还有计数器 -->
+      <div id="text_time">游戏时间</div>
+      <div id="timer">0分0秒</div>
+      <!-- 开始按钮和结束按钮 -->
+      <button id="start_and_stop" onclick="startAndStop()">开始游戏</button>   
+      <button id="reset" onclick="shuffle_div()">重新开始</button>
+      <button id="cheater" onclick="cheater()">开挂试试</button></br>
+      
+      <!-- <button id="test" onclick="test()">改变/恢复最终状态</button>  -->
+      <div class="js-canvi-content">
+        <button id="js-canvi-open-btn" class="js-canvi-open-button--left btn">选择图片</button>
+      </div>
+      <button id="change_num_btn" onclick="ren_change()">交换图片</button>
+      <input id="change_num" type="text" value="" >
+    </div>
+
+  </div>
+
+
+  <aside class="myCanvasNav canvi-navbar">
+    <!-- 导航栏的头部 -->
+  <div class="canvi-user-info">
+    <div class="canvi-user-info__image">
+    <img src="characters/pine-logo.jpg">
+    </div>
+  <div class="canvi-user-info__data">
+    <span class="canvi-user-info__title">可选图片</span>
+    <div class="canvi-user-info__close" onclick="t.close();"></div>
+  </div>
+  </div>
+  <!-- 可选择的图片 -->
+  <ul class="canvi-navigation">
+
+    <li class="li_col">
+      
+      <a href="#" class="canvi-navigation__item">
+        <img id="img1" class="choose_img" onclick="choose_image(this)" src="characters/X_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片1</span>
+      </a>
+    </li>
+
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img2" class="choose_img" onclick="choose_image(this)" src="characters/d.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片2</span>
+      </a>
+    </li>
+
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img5" class="choose_img" onclick="choose_image(this)" src="characters/B_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">示例x</span>
+      </a>
+    </li>
+
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img3" class="choose_img" onclick="choose_image(this)" src="characters/o.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片3</span>
+      </a>
+    </li>
+
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img4" class="choose_img" onclick="choose_image(this)" src="characters/u.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片4</span>
+      </a>
+    </li>
+
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img5" class="choose_img" onclick="choose_image(this)" src="characters/v_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片5</span>
+      </a>
+    </li>
+
+    
+
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img6" class="choose_img" onclick="choose_image(this)" src="characters/M_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片6</span>
+      </a>
+    </li>
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img7" class="choose_img" onclick="choose_image(this)" src="characters/g_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片7</span>
+      </a>
+    </li>
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img8" class="choose_img" onclick="choose_image(this)" src="characters/H_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片8</span>
+      </a>
+    </li>
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img9" class="choose_img" onclick="choose_image(this)" src="characters/o.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片9</span>
+      </a>
+    </li>
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img10" class="choose_img" onclick="choose_image(this)" src="characters/k_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片10</span>
+      </a>
+    </li>
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img2" class="choose_img" onclick="choose_image(this)" src="characters/M.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片2</span>
+      </a>
+    </li>
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img2" class="choose_img" onclick="choose_image(this)" src="characters/n_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片2</span>
+      </a>
+    </li>
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img2" class="choose_img" onclick="choose_image(this)" src="characters/t_.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片2</span>
+      </a>
+    </li>
+    <li class="li_col">
+      <a href="#" class="canvi-navigation__item">
+        <img id="img2" class="choose_img" onclick="choose_image(this)" src="characters/z.jpg"/>
+      <span class="canvi-navigation__text" style="font-size: 22px;position: relative; left: 15px;">图片2</span>
+      </a>
+    </li>
+  </ul>
+  </aside>
+
+  <div id="tanchuang" style=" display: none;">
+    <div id="tan_text"></div>
+    <button id="tan_btn" onclick="tan_close()">关闭</button>
+  </div>
+
+
+
+
+<script src="dist_dao/canvi.js"></script>
+<script>
+var t = new Canvi({
+        content: ".js-canvi-content",
+        isDebug: !1,
+        navbar: ".myCanvasNav",
+        openButton: ".js-canvi-open-button--left",
+        position: "left",
+        pushContent: !1,
+        speed: "0.2s",
+        width: "100vw",
+        responsiveWidths: [ {
+            breakpoint: "600px",
+            width: "280px"
+        }, {
+            breakpoint: "1280px",
+            width: "320px"
+        }, {
+            breakpoint: "1600px",
+            width: "380px"
+        } ]
+    })
+</script>
+</body>
+</html>
